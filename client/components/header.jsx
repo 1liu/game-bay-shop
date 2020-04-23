@@ -10,7 +10,11 @@ export default class Header extends React.Component {
 
   render() {
     return (
-      <h1>Wicked Sales</h1>
+      <div className="headerRow">
+        <div className="container">
+          <h1 className="header"><span>$</span>Wicked Sales</h1>
+        </div>
+      </div>
     );
 
   }
