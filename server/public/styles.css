@@ -1,0 +1,13 @@
+.card {
+  height: 400px;
+  margin: 15px 0 15px;
+}
+
+.card-img-top {
+  height: 60%;
+  object-fit: contain;
+}
+
+.card-body {
+  height: 40%;
+}
