@@ -7,7 +7,7 @@ export default class CartSummary extends React.Component {
     return (
       <div className="container">
         <div className="control">
-          <a href="#" className="btn" onClick={() => this.props.setView('catalog', {})}>Back to catalog</a>
+          <a href="#" className="btn" onClick={() => this.props.setView('catalog', {})}>&#60;Back to catalog</a>
         </div>
         <h2>My Cart</h2>
 
@@ -16,8 +16,8 @@ export default class CartSummary extends React.Component {
             <CartSummaryItem key={p.id} product={p} />
           );
         })}
-        <div className='checkout-row'>
-          <p>Item Total ${(this.props.total / 100).toFixed(2)}</p>
+        <div className='checkout-row d-flex justify-content-between'>
+          <p className='d-inline-block'>Item Total ${(this.props.total / 100).toFixed(2)}</p>
           {this.props.cart.length === 0 ? null : <a href="#" className="btn btn-primary checkout-button" onClick={() => this.props.setView('checkout', {})}>Checkout</a>}
         </div>
       </div>

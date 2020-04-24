@@ -79,7 +79,7 @@ export default class App extends React.Component {
 
   calcTotal() {
     let total = 0;
-    this.state.cart.map(item => { total += item.price; });
+    this.state.cart.forEach(item => { total += item.price; });
     return total;
   }
 

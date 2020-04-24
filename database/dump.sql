@@ -231,6 +231,36 @@ ALTER TABLE ONLY public.products ALTER COLUMN "productId" SET DEFAULT nextval('p
 COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
 222	71	3	2900
 223	71	3	2900
+224	71	2	2595
+225	71	1	2999
+226	71	5	9900
+227	72	1	2999
+228	72	5	9900
+229	72	4	999
+230	73	2	2595
+231	73	5	9900
+232	73	1	2999
+233	74	2	2595
+234	74	3	2900
+235	74	6	830
+236	74	2	2595
+237	74	2	2595
+238	74	2	2595
+239	74	2	2595
+240	74	3	2900
+241	74	3	2900
+242	74	3	2900
+243	74	3	2900
+244	74	2	2595
+245	74	2	2595
+246	74	2	2595
+247	74	2	2595
+248	74	2	2595
+249	74	1	2999
+250	74	2	2595
+251	74	1	2999
+252	74	2	2595
+253	74	2	2595
 221	71	2	2595
 \.
 
@@ -241,6 +271,9 @@ COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
 
 COPY public.carts ("cartId", "createdAt") FROM stdin;
 71	2020-04-24 14:05:28.175655-07
+72	2020-04-24 14:10:41.762792-07
+73	2020-04-24 14:12:04.497171-07
+74	2020-04-24 15:34:34.669273-07
 \.
 
 
@@ -249,6 +282,9 @@ COPY public.carts ("cartId", "createdAt") FROM stdin;
 --
 
 COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", "createdAt") FROM stdin;
+6	71	Test	22222	110 Wanderer	2020-04-24 14:10:21.258716-07
+7	72	Test	212121212121212121	1111111 High St	2020-04-24 14:11:18.269905-07
+8	73	Lewis	1234567898	123 Higt St	2020-04-24 14:12:37.743234-07
 \.
 
 
@@ -270,21 +306,21 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 -- Name: cartItems_cartItemId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 223, true);
+SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 253, true);
 
 
 --
 -- Name: carts_cartId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."carts_cartId_seq"', 71, true);
+SELECT pg_catalog.setval('public."carts_cartId_seq"', 74, true);
 
 
 --
 -- Name: orders_orderId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."orders_orderId_seq"', 5, true);
+SELECT pg_catalog.setval('public."orders_orderId_seq"', 8, true);
 
 
 --
