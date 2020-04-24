@@ -1,7 +1,9 @@
 .headerRow {
   color: white;
-  width: 100%;
-  background-color: rgb(52, 58, 64);
+}
+
+.headerRow p {
+  margin: 0;
 }
 
 .card {
@@ -33,7 +35,7 @@
 }
 
 .shoppingCartBtn {
-  font-size: 2rem;
+  font-size: 1.25rem;
 }
 
 .card-img {

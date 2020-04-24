@@ -9,13 +9,15 @@ export default class Header extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="d-flex justify-content-between">
-          <h1 className="header"><span>$</span>Wicked Sales</h1>
-          <div className="shoppingCartBtn">
-            <p className='d-inline-block'>{this.props.cartItemCount} items</p>
-            <i className="fas fa-shopping-cart" onClick={() => this.props.setView('cart', {})}></i>
-          </div>
+      <div className="headerRow bg-dark">
+        <div className="container">
+          <nav className="navbar navbar-dark justify-content-between">
+            <a className="navbar-brand" href="#"><i className="fas fa-dollar-sign"></i> Wicked Sales</a>
+            <div className="shoppingCartBtn" onClick={() => this.props.setView('cart', {})}>
+              <p className='d-inline-block'>{this.props.cartItemCount} items</p>
+              <i className="fas fa-shopping-cart"></i>
+            </div>
+          </nav>
         </div>
       </div>
     );
