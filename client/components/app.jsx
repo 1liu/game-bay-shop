@@ -14,6 +14,7 @@ export default class App extends React.Component {
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
     this.addToCard = this.addToCard.bind(this);
+    this.placeOrder = this.placeOrder.bind(this);
   }
 
   componentDidMount() {
@@ -48,6 +49,23 @@ export default class App extends React.Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(product)
+    })
+      .then(res => res.json())
+      .then(data => {
+        const newCart = this.state.cart.slice();
+        newCart.push(data);
+        this.setState({ cart: newCart });
+      })
+      .catch(error => console.log('Fetch cart failed!', error));
+  }
+
+  placeOrder(obj) {
+    fetch('/api/orders', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(obj)
     })
       .then(res => res.json())
       .then(data => {
