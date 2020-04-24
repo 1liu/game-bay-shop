@@ -362,6 +362,7 @@ COPY public.carts ("cartId", "createdAt") FROM stdin;
 --
 
 COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", "createdAt") FROM stdin;
+1	65	Lewis	111111	adress 000000	2020-04-24 12:36:08.891339-07
 \.
 
 
@@ -397,7 +398,7 @@ SELECT pg_catalog.setval('public."carts_cartId_seq"', 66, true);
 -- Name: orders_orderId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."orders_orderId_seq"', 1, false);
+SELECT pg_catalog.setval('public."orders_orderId_seq"', 1, true);
 
 
 --

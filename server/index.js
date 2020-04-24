@@ -165,6 +165,34 @@ app.post('/api/cart', (req, res, next) => {
     });
 });
 
+app.post('/api/orders', (req, res, next) => {
+  const order = req.body;
+  if (req.session.cartId === undefined) {
+    res.status(400).json({
+      error: 'Can not post card, CartId is undefined.'
+    });
+  } else if (req.body.name === undefined || req.body.creditCard === undefined || req.body.shippingAddress === undefined) {
+    res.status(400).json({
+      error: 'Name, CreditCard and Shipping Address are needed'
+    });
+  } else {
+    const cartId = req.session.cartId;
+    const sql = `
+            insert into "orders" ("cartId", "name", "creditCard", "shippingAddress")
+            values ($1, $2, $3, $4)
+            returning "orderId", "createdAt", "name", "creditCard", "shippingAddress"
+        `;
+    const params = [cartId, order.name, order.creditCard, order.shippingAddress];
+    db.query(sql, params)
+      .then(result => {
+        res.json(result.rows[0]);
+      })
+      .catch(err => next(err));
+    req.session.cartId = undefined;
+
+  }
+});
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
