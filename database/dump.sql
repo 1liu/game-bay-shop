@@ -187,6 +187,13 @@ COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
 53	65	1	2999
 54	65	1	2999
 55	65	1	2999
+56	66	3	2900
+57	66	3	2900
+58	66	3	2900
+59	66	5	9900
+60	66	1	2999
+61	66	3	2900
+62	66	2	2595
 \.
 
 
@@ -196,6 +203,7 @@ COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
 
 COPY public.carts ("cartId", "createdAt") FROM stdin;
 65	2020-04-24 10:34:01.636531-07
+66	2020-04-24 11:17:47.83774-07
 \.
 
 
@@ -217,14 +225,14 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 -- Name: cartItems_cartItemId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 55, true);
+SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 62, true);
 
 
 --
 -- Name: carts_cartId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."carts_cartId_seq"', 65, true);
+SELECT pg_catalog.setval('public."carts_cartId_seq"', 66, true);
 
 
 --
