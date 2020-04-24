@@ -30,6 +30,10 @@
   border-radius: 5px;
 }
 
+.cart-row div {
+  height: 300px;
+}
+
 .headerRow .container * {
   display: inline-block;
 }
@@ -37,4 +41,14 @@
 .shoppingCartBtn {
   font-size: 2rem;
   float: right;
+}
+
+.cart-item-row {
+  height: 300px
+}
+
+.card-img {
+  height: 280px;
+  padding: 10px;
+  object-fit: contain;
 }

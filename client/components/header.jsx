@@ -15,7 +15,7 @@ export default class Header extends React.Component {
           <h1 className="header"><span>$</span>Wicked Sales</h1>
           <div className="shoppingCartBtn">
             <p>{this.props.cartItemCount} items</p>
-            <i className="fas fa-shopping-cart"></i>
+            <i className="fas fa-shopping-cart" onClick={() => this.props.setView('cart', {})}></i>
           </div>
 
         </div>
