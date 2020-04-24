@@ -3,6 +3,7 @@ import Header from './header';
 import ProductList from './product-list';
 import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
+import CheckoutForm from './checkout-form';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -15,6 +16,7 @@ export default class App extends React.Component {
     this.getCartItems = this.getCartItems.bind(this);
     this.addToCard = this.addToCard.bind(this);
     this.placeOrder = this.placeOrder.bind(this);
+    this.calcTotal = this.calcTotal.bind(this);
   }
 
   componentDidMount() {
@@ -59,21 +61,26 @@ export default class App extends React.Component {
       .catch(error => console.log('Fetch cart failed!', error));
   }
 
-  placeOrder(obj) {
+  placeOrder(order) {
     fetch('/api/orders', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(obj)
+      body: JSON.stringify(order)
     })
       .then(res => res.json())
       .then(data => {
-        const newCart = this.state.cart.slice();
-        newCart.push(data);
-        this.setState({ cart: newCart });
+        this.setState({ cart: [] });
+        this.setView('catalog', {});
       })
       .catch(error => console.log('Fetch cart failed!', error));
+  }
+
+  calcTotal() {
+    let total = 0;
+    this.state.cart.map(item => { total += item.price; });
+    return total;
   }
 
   render() {
@@ -95,7 +102,13 @@ export default class App extends React.Component {
       return (
         <div>
           <Header cartItemCount={this.state.cart.length} setView={this.setView}/>
-          <CartSummary cart={this.state.cart} setView={this.setView}/>
+          <CartSummary total={this.calcTotal()} cart={this.state.cart} setView={this.setView} placeOrder={this.placeOrder}/>
+        </div>
+      );
+    } else if (this.state.name === 'checkout') {
+      return (
+        <div>
+          <CheckoutForm total={this.calcTotal()} placeOrder={this.placeOrder} setView={this.setView}/>
         </div>
       );
     }

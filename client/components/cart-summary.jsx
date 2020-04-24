@@ -16,7 +16,10 @@ export default class CartSummary extends React.Component {
             <CartSummaryItem key={p.id} product={p} />
           );
         })}
-
+        <div className='checkout-row'>
+          <p>Item Total ${(this.props.total / 100).toFixed(2)}</p>
+          {this.props.cart.length === 0 ? null : <a href="#" className="btn btn-primary checkout-button" onClick={() => this.props.setView('checkout', {})}>Checkout</a>}
+        </div>
       </div>
     );
 

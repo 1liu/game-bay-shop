@@ -52,3 +52,15 @@
   padding: 10px;
   object-fit: contain;
 }
+
+.checkout-row * {
+  display: inline-block;
+}
+
+.checkout-button {
+  float: right;
+}
+
+.placeOrder{
+  float: right;
+}
