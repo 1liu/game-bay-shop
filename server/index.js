@@ -101,55 +101,45 @@ app.post('/api/cart', (req, res, next) => {
     .then(result => {
       const price = result.rows;
       if (price.length === 0) {
-        next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 400));
+        throw new ClientError(`cannot ${req.method} ${req.originalUrl}`, 400);
       } else {
-        res.status(201).json(price);
-        // req.session.test = 1;
-        console.log('Test session', req.session.cartId);
         if (req.session.cartId !== undefined) {
           return ({
             cartId: req.session.cartId,
             price: price[0].price
           });
         }
-        return new Promise((resolve, reject) => {
-          const sql = `
+        const sql = `
             insert into "carts" ("cartId", "createdAt")
             values (default, default)
             returning "cartId"
         `;
-          db.query(sql)
-            .then(result => {
-              const rt = {
-                cartId: result.rows[0].cartId,
-                price: price[0].price
-              };
-              resolve(rt);
-            });
-        });
-
+        return db.query(sql)
+          .then(result => {
+            return {
+              cartId: result.rows[0].cartId,
+              price: price[0].price
+            };
+          });
       }
     })
     .then(newResult => {
       req.session.cartId = newResult.cartId;
-      req.session.save();
-      console.log('Test session222', req.session.cartId);
-      return new Promise((resolve, reject) => {
-        const sql = `
+      const sql = `
             insert into "cartItems" ("cartId", "productId", "price")
             values ($1, $2, $3)
             returning "cartItemId"
         `;
-        const params = [newResult.cartId, product.productId, newResult.price];
-        db.query(sql, params)
-          .then(result => {
-            resolve(result.rows[0].cartItemId);
-          });
-      });
+      const params = [newResult.cartId, product.productId, newResult.price];
+      return db.query(sql, params)
+        .then(result => {
+          return (result.rows[0].cartItemId);
+        });
+
     })
     .then(finalResult => {
-      return new Promise((resolve, reject) => {
-        const sql = `
+
+      const sql = `
             select "c"."cartItemId",
                    "c"."price",
                     "p"."productId",
@@ -160,15 +150,11 @@ app.post('/api/cart', (req, res, next) => {
              join "products" as "p" using ("productId")
             where "c"."cartItemId" = $1
         `;
-        const params = [finalResult];
-        db.query(sql, params)
-          .then(result => {
-            console.log('result###########', result.rows[0]);
-            //
-            resolve();
-
-          });
-      });
+      const params = [finalResult];
+      return db.query(sql, params)
+        .then(result => {
+          res.status(201).json(result.rows[0]);
+        });
 
     })
     .catch(err => {

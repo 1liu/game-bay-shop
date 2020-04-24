@@ -184,10 +184,9 @@ ALTER TABLE ONLY public.products ALTER COLUMN "productId" SET DEFAULT nextval('p
 --
 
 COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
-36	57	1	2999
-37	58	1	2999
-38	59	1	2999
-39	60	1	2999
+53	65	1	2999
+54	65	1	2999
+55	65	1	2999
 \.
 
 
@@ -196,10 +195,7 @@ COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
 --
 
 COPY public.carts ("cartId", "createdAt") FROM stdin;
-57	2020-04-23 22:02:45.027633-07
-58	2020-04-23 22:02:57.887675-07
-59	2020-04-23 22:09:13.265079-07
-60	2020-04-23 22:09:27.573724-07
+65	2020-04-24 10:34:01.636531-07
 \.
 
 
@@ -221,14 +217,14 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 -- Name: cartItems_cartItemId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 39, true);
+SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 55, true);
 
 
 --
 -- Name: carts_cartId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."carts_cartId_seq"', 60, true);
+SELECT pg_catalog.setval('public."carts_cartId_seq"', 65, true);
 
 
 --
