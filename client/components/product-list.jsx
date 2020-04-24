@@ -23,8 +23,8 @@ export default class ProductList extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="row">
+      <div className="container d-flex justify-content-around">
+        <div className="row ">
           {this.state.products.map(p => {
             return (
               <div className="col-4" key={p.id} onClick={() => this.props.setView('details', { productId: p.productId })}>

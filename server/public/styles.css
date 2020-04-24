@@ -25,7 +25,16 @@
   object-fit: contain;
 }
 
-.detail-container{
+.detail-container {
   border: 2px solid rgb(240, 240, 240);
   border-radius: 5px;
+}
+
+.headerRow .container * {
+  display: inline-block;
+}
+
+.shoppingCartBtn {
+  font-size: 2rem;
+  float: right;
 }
