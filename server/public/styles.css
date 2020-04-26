@@ -1,10 +1,10 @@
 .headerRow {
   color: white;
-  width: 100%;
-  background-color: rgb(52, 58, 64);
 }
 
-.header h1 {}
+.headerRow p {
+  margin: 0;
+}
 
 .card {
   height: 400px;
@@ -30,21 +30,12 @@
   border-radius: 5px;
 }
 
-.cart-row div {
-  height: 300px;
-}
-
-.headerRow .container * {
-  display: inline-block;
+.cart-item-row {
+  height: 300px
 }
 
 .shoppingCartBtn {
-  font-size: 2rem;
-  float: right;
-}
-
-.cart-item-row {
-  height: 300px
+  font-size: 1.25rem;
 }
 
 .card-img {

@@ -171,7 +171,7 @@ app.post('/api/orders', (req, res, next) => {
     res.status(400).json({
       error: 'Can not post card, CartId is undefined.'
     });
-  } else if (req.body.name === undefined || req.body.creditCard === undefined || req.body.shippingAddress === undefined) {
+  } else if (req.body.name === '' || req.body.creditCard === '' || req.body.shippingAddress === '') {
     res.status(400).json({
       error: 'Name, CreditCard and Shipping Address are needed'
     });
@@ -185,11 +185,10 @@ app.post('/api/orders', (req, res, next) => {
     const params = [cartId, order.name, order.creditCard, order.shippingAddress];
     db.query(sql, params)
       .then(result => {
+        req.session.cartId = undefined;
         res.json(result.rows[0]);
       })
       .catch(err => next(err));
-    req.session.cartId = undefined;
-
   }
 });
 
