@@ -43,7 +43,6 @@ export default class CheckoutForm extends React.Component {
           </div>
           <label htmlFor="creditCard">Credit Card</label>
           <div className="input-group mb-3">
-
             <input required type="text" className="form-control" id="creditCard" value={this.state.creditCard} aria-describedby="basic-addon3" onChange={this.handleCreditCardChange} />
           </div>
           <label htmlFor="shippingAddress">Shipping Address</label>
@@ -57,10 +56,7 @@ export default class CheckoutForm extends React.Component {
             </div>
           </div>
         </form>
-
       </div>
-
     );
-
   }
 }

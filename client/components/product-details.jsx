@@ -22,10 +22,10 @@ export default class ProductDetails extends React.Component {
     if (this.state.product !== null) {
       return (
         <div className="container">
+          <div className="control">
+            <a href="#" className="btn" onClick={() => this.props.setView('catalog', {})}>&#60;Back to catalog</a>
+          </div>
           <div className="detail-container">
-            <div className="control">
-              <a href="#" className="btn" onClick={() => this.props.setView('catalog', {})}>&#60;Back to catalog</a>
-            </div>
             <div className="row deltai-up no-gutters">
               <div className="col-md-4">
                 <img src={this.state.product.image} className="card-img" alt="..."></img>
