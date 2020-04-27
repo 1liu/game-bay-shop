@@ -10,7 +10,6 @@ export default class CartSummary extends React.Component {
           <a href="#" className="btn" onClick={() => this.props.setView('catalog', {})}>&#60;Back to catalog</a>
         </div>
         <h2>My Cart</h2>
-
         {this.props.cart.map(p => {
           return (
             <CartSummaryItem key={p.id} product={p} />
@@ -22,6 +21,5 @@ export default class CartSummary extends React.Component {
         </div>
       </div>
     );
-
   }
 }
