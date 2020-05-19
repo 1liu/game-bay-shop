@@ -16,6 +16,11 @@
   cursor: pointer;
 }
 
+.card:hover {
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
 .card-img-top {
   height: 60%;
   object-fit: contain;
@@ -42,4 +47,16 @@
 
 .pointer {
   cursor: pointer;
+}
+
+.backdrop {
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.4);
+  left: 0;
+  top: 0;
+}
+
+.modal-contents {
+  max-width: 450px;
+  user-select: none;
 }
