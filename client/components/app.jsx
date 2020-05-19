@@ -5,7 +5,7 @@ import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
 import CheckoutForm from './checkout-form';
 import Notification from './notification';
-
+import Footer from './footer';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -13,7 +13,7 @@ export default class App extends React.Component {
       name: 'catalog',
       params: {},
       cart: [],
-      showModal: true
+      showModal: false
     };
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
@@ -113,6 +113,7 @@ export default class App extends React.Component {
         <Header cartItemCount={this.state.cart.length} setView={this.setView} />
         {modal}
         {displayElement}
+        <Footer />
       </div>
     );
 
