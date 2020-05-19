@@ -10,9 +10,6 @@ body {
   animation: fade-in .75s;
 }
 
-.container {
-  max-width: 1140px;
-}
 
 .card {
   height: 400px;
