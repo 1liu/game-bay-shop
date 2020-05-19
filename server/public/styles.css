@@ -1,13 +1,17 @@
-.headerRow {
-  color: white;
+html {
+  scroll-behavior: smooth;
 }
 
-.headerRow p {
-  margin: 0;
+body {
+  font-family: 'Ubuntu', sans-serif;
 }
 
-.shoppingCartBtn {
-  font-size: 1.25rem;
+* {
+  animation: fade-in .75s;
+}
+
+.container {
+  max-width: 1140px;
 }
 
 .card {
