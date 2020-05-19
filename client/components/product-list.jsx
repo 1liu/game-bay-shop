@@ -25,9 +25,9 @@ export default class ProductList extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          {this.state.products.map(p => {
+          {this.state.products.map((p, key) => {
             return (
-              <div className="col-md-4" key={p.id} onClick={() => this.props.setView('details', { productId: p.productId })}>
+              <div className="col-md-4" key={key} onClick={() => this.props.setView('details', { productId: p.productId })}>
                 <ProductListItem name={p.name} image={p.image} shortDescription={p.shortDescription} />
               </div>
             );

@@ -4,19 +4,23 @@ import ProductList from './product-list';
 import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
 import CheckoutForm from './checkout-form';
+import Notification from './notification';
+import Footer from './footer';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       name: 'catalog',
       params: {},
-      cart: []
+      cart: [],
+      showModal: true
     };
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
     this.addToCard = this.addToCard.bind(this);
     this.placeOrder = this.placeOrder.bind(this);
     this.calcTotal = this.calcTotal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   componentDidMount() {
@@ -33,6 +37,11 @@ export default class App extends React.Component {
       name: name,
       params: params
     });
+  }
+
+  closeModal() {
+    this.setState({ showModal: false });
+    console.log('closed');
   }
 
   getCartItems() {
@@ -83,33 +92,30 @@ export default class App extends React.Component {
   }
 
   render() {
-    if (this.state.name === 'catalog') {
-      return (
-        <div className="container-fluid">
-          <Header cartItemCount={this.state.cart.length} setView={this.setView}/>
-          <ProductList setView={this.setView} />
-        </div>
-      );
-    } else if (this.state.name === 'details') {
-      return (
-        <div className="container-fluid">
-          <Header cartItemCount={this.state.cart.length} setView={this.setView}/>
-          <ProductDetails setView={this.setView} params={this.state.params} addToCard={this.addToCard}/>
-        </div>
-      );
-    } else if (this.state.name === 'cart') {
-      return (
-        <div className="container-fluid">
-          <Header cartItemCount={this.state.cart.length} setView={this.setView}/>
-          <CartSummary total={this.calcTotal()} cart={this.state.cart} setView={this.setView} placeOrder={this.placeOrder}/>
-        </div>
-      );
-    } else if (this.state.name === 'checkout') {
-      return (
-        <div className="container-fluid">
-          <CheckoutForm total={this.calcTotal()} placeOrder={this.placeOrder} setView={this.setView}/>
-        </div>
-      );
+    let displayElement;
+    const viewMode = this.state.name;
+    const modal = this.state.showModal ? <Notification closeModal={this.closeModal} /> : null;
+
+    if (viewMode === 'catalog') {
+      displayElement = <ProductList setView={this.setView} />;
+    } else if (viewMode === 'details') {
+      displayElement = <ProductDetails setView={this.setView} params={this.state.params} addToCard={this.addToCard} />;
+    } else if (viewMode === 'cart') {
+      displayElement = <CartSummary total={this.calcTotal()} cart={this.state.cart} setView={this.setView} placeOrder={this.placeOrder} />;
+    } else if (viewMode === 'checkout') {
+      displayElement = <CheckoutForm total={this.calcTotal()} placeOrder={this.placeOrder} setView={this.setView} />;
+    } else if (viewMode === 'confirmation') {
+      displayElement = null;
     }
+
+    return (
+      <div className="container-fluid">
+        <Header cartItemCount={this.state.cart.length} setView={this.setView} />
+        {modal}
+        {displayElement}
+        <Footer />
+      </div>
+    );
+
   }
 }

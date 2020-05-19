@@ -1,18 +1,25 @@
-.headerRow {
-  color: white;
+html {
+  scroll-behavior: smooth;
 }
 
-.headerRow p {
-  margin: 0;
+body {
+  font-family: 'Ubuntu', sans-serif;
 }
 
-.shoppingCartBtn {
-  font-size: 1.25rem;
+* {
+  animation: fade-in .75s;
 }
+
 
 .card {
   height: 400px;
   margin: 15px 0 15px;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
 }
 
 .card-img-top {
@@ -37,4 +44,20 @@
   height: 280px;
   padding: 10px;
   object-fit: contain;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.backdrop {
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.4);
+  left: 0;
+  top: 0;
+}
+
+.modal-contents {
+  max-width: 450px;
+  user-select: none;
 }
