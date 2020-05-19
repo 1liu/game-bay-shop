@@ -1,5 +1,5 @@
 # Game Bay Shop
-Formerly known as Wicked Sales.  Will be re-themed soon.  Full-stack e-commerce experience for coffee and coffee supplies.
+Full-stack e-commerce experience for nintendo game enthusiast.
 
 # Technologies Used
 - React.js
