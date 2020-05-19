@@ -13,7 +13,7 @@ export default class App extends React.Component {
       name: 'catalog',
       params: {},
       cart: [],
-      showModal: false
+      showModal: true
     };
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
