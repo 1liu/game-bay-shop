@@ -11,12 +11,8 @@ export default function Notification(props) {
           event.preventDefault();
           props.closeModal();
         }}>
-          <div className="form-check m-2">
-            <input className="form-check-input" type="checkbox" id="acknowledgement" required />
-            <label className="form-check-label" htmlFor="acknowledgement">I acknowledge that this is strictly a demo application.</label>
-          </div>
           <div className="btn-group w-100 p-1">
-            <button className="btn btn-danger w-100">Proceed</button>
+            <button className="btn btn-danger w-100">I acknowledge that this is strictly a demo.</button>
           </div>
         </form>
       </div>
