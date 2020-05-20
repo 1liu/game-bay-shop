@@ -5,8 +5,8 @@ export default function Notification(props) {
   return (
     <div className="backdrop position-fixed d-flex h-100 w-100">
       <div className="modal-contents m-auto bg-white border rounded mt-5 p-3">
-        <h2 className="m-2">Welcome to Wicked Sales!</h2>
-        <p className="m-2">Please note that this website is a content management application created for the purpose of demonstration. Check the box below to acknowledge that the merchandise shown here is not available for purchase, that you will not provide genuine financial or personal information, and that you are aware no purchase will truly be processed.</p>
+        <h2 className="m-2">Welcome to Game Bay!</h2>
+        <p className="m-2">Please note that this website is a content management application created for the purpose of demonstration. Merchandise shown here is not available for purchase. Please DO NOT provide your real financial or personal information.</p>
         <form onSubmit={event => {
           event.preventDefault();
           props.closeModal();

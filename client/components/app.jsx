@@ -41,15 +41,13 @@ export default class App extends React.Component {
 
   closeModal() {
     this.setState({ showModal: false });
-    console.log('closed');
   }
 
   getCartItems() {
-    console.log('Featching Cart');
     fetch('/api/cart')
       .then(res => res.json())
       .then(data => this.setState({ cart: data }))
-      .catch(error => console.log('Fetch cart failed!', error));
+      .catch(error => error.log('Fetch cart failed!', error));
   }
 
   addToCard(product) {
@@ -66,7 +64,7 @@ export default class App extends React.Component {
         newCart.push(data);
         this.setState({ cart: newCart });
       })
-      .catch(error => console.log('Fetch cart failed!', error));
+      .catch(error => error.log('Fetch cart failed!', error));
   }
 
   placeOrder(order) {
@@ -82,7 +80,7 @@ export default class App extends React.Component {
         this.setState({ cart: [] });
         this.setView('catalog', {});
       })
-      .catch(error => console.log('Fetch cart failed!', error));
+      .catch(error => error.log('Fetch cart failed!', error));
   }
 
   calcTotal() {
@@ -109,12 +107,12 @@ export default class App extends React.Component {
     }
 
     return (
-      <div className="container-fluid">
+      <>
         <Header cartItemCount={this.state.cart.length} setView={this.setView} />
         {modal}
         {displayElement}
         <Footer />
-      </div>
+      </>
     );
 
   }
