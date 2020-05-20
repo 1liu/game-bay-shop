@@ -7,7 +7,10 @@ export default class CartSummary extends React.Component {
     return (
       <div className="container">
         <div className="control">
-          <a href="#" className="btn" onClick={() => this.props.setView('catalog', {})}>&#60;Back to catalog</a>
+          <a href="#" className="btn my-3" onClick={() => this.props.setView('catalog', {})}>
+            <i className="fas fa-chevron-circle-left mr-1"></i>
+            Back to catalog
+          </a>
         </div>
         <h2>My Cart</h2>
         {this.props.cart.map(p => {

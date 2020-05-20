@@ -15,7 +15,7 @@ export default class ProductDetails extends React.Component {
       .then(data => {
         this.setState({ product: data });
       })
-      .catch(error => console.log('Fetch failed!', error));
+      .catch(error => error.log('Fetch failed!', error));
   }
 
   render() {
@@ -23,7 +23,10 @@ export default class ProductDetails extends React.Component {
       return (
         <div className="container">
           <div className="control">
-            <a href="#" className="btn" onClick={() => this.props.setView('catalog', {})}>&#60;Back to catalog</a>
+            <a href="#" className="btn my-3" onClick={() => this.props.setView('catalog', {})}>
+              <i className="fas fa-chevron-circle-left mr-1"></i>
+             Back to catalog
+            </a>
           </div>
           <div className="detail-container">
             <div className="row deltai-up no-gutters">
