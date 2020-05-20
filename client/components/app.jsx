@@ -109,12 +109,12 @@ export default class App extends React.Component {
     }
 
     return (
-      <div className="container-fluid">
+      <>
         <Header cartItemCount={this.state.cart.length} setView={this.setView} />
         {modal}
         {displayElement}
         <Footer />
-      </div>
+      </>
     );
 
   }
