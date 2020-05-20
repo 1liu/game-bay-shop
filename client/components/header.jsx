@@ -5,7 +5,7 @@ export default function Header(props) {
     <div className="navbar navbar-dark bg-dark justify-content-between m-auto sticky-top">
       <div className="container">
         <h5 className="click header-text my-auto text-white" onClick={() => props.setView('catalog', {})}>
-          <i className="fas fa-dollar-sign"></i> Wicked Sales
+          <i className="fas fa-gamepad"></i> Game Bay Shop
         </h5>
         <h6 className="click my-auto mr-3 text-white" onClick={() => props.setView('cart', {})}>
           {props.cartItemCount} items
