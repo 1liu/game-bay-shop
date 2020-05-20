@@ -35,7 +35,7 @@ export default class CheckoutForm extends React.Component {
     return (
       <div className="container">
         <h2>My Cart</h2>
-        <p>Order Total: ${this.props.total}</p>
+        <p>Order Total: ${(this.props.total / 100).toFixed(2)}</p>
         <form className=" mb-4 shadow-sm" onSubmit={() => this.props.placeOrder(this.state)}>
           <label htmlFor="name">Name</label>
           <div className="input-group mb-3">
