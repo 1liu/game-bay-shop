@@ -7,7 +7,11 @@ body {
 }
 
 * {
-  animation: fade-in .75s;
+  animation: trans-fade .75s;
+}
+
+.container {
+  max-width: 1140px;
 }
 
 .card {
