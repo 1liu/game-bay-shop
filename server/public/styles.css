@@ -10,7 +10,6 @@ body {
   animation: fade-in .75s;
 }
 
-
 .card {
   height: 400px;
   margin: 15px 0 15px;
@@ -60,4 +59,8 @@ body {
 .modal-contents {
   max-width: 450px;
   user-select: none;
+}
+
+.cart-content, .product-content, .product-detail, .checkout-container {
+  min-height: 80vh;
 }
