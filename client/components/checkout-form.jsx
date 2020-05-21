@@ -49,13 +49,17 @@ export default class CheckoutForm extends React.Component {
           <div className="input-group mb-3">
             <textarea required type="text" className="form-control" id="shippingAddress" value={this.state.shippingAddress} aria-describedby="basic-addon3" onChange={this.handleAddressChange} />
           </div>
-          <div className="button row d-flex">
-            <a href="#" className="btn" onClick={() => this.props.setView('catalog', {})}>Continue Shopping</a>
+          <div className="pointer text-muted" onClick={() => this.props.setView('catalog', {})}>
             <div className="ml-auto">
               <button id="placeOrder" type="submit" className="btn btn-success">Place Order</button>
             </div>
+            <div className="mt-2">
+              <i className="fas fa-arrow-circle-left mr-2 "></i>
+                Continue Shopping
+            </div>
           </div>
         </form>
+        <h1 className="text-danger">*Please do not enter real information.*</h1>
       </div>
     );
   }
