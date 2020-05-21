@@ -13,9 +13,9 @@ export default class CartSummary extends React.Component {
           </a>
         </div>
         <h2>My Cart</h2>
-        {this.props.cart.map(p => {
+        {this.props.cart.map((p, key) => {
           return (
-            <CartSummaryItem key={p.id} product={p} />
+            <CartSummaryItem key={key} product={p} />
           );
         })}
         <div className='checkout-row d-flex justify-content-between'>
