@@ -5,7 +5,7 @@ export default class CartSummary extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container cart-content col-md-8 m-auto">
         <div className="control">
           <a href="#" className="btn my-3" onClick={() => this.props.setView('catalog', {})}>
             <i className="fas fa-chevron-circle-left mr-1"></i>

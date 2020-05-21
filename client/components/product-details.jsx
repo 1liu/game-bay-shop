@@ -21,7 +21,7 @@ export default class ProductDetails extends React.Component {
   render() {
     if (this.state.product !== null) {
       return (
-        <div className="container">
+        <div className="container product-detail col-md-8 m-auto">
           <div className="control">
             <a href="#" className="btn my-3" onClick={() => this.props.setView('catalog', {})}>
               <i className="fas fa-chevron-circle-left mr-1"></i>
