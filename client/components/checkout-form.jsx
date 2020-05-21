@@ -59,6 +59,7 @@ export default class CheckoutForm extends React.Component {
             </div>
           </div>
         </form>
+        <h1 className="text-danger">*Please do not enter real information.*</h1>
       </div>
     );
   }
