@@ -4,7 +4,7 @@ export default class ProductListItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isDesktop: window.innerHeight > 900
+      isDesktop: window.innerHeight > 1000
     };
   }
 
