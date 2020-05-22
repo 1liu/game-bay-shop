@@ -17,12 +17,12 @@ body {
 .card {
   height: 400px;
   margin: 15px 0 15px;
-  cursor: pointer;
 }
 
-.card:hover {
+.category-card:hover {
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
   transform: scale(1.05);
+  cursor: pointer;
 }
 
 .card-img-top {
