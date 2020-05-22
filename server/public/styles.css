@@ -15,8 +15,12 @@ body {
 }
 
 .card {
-  height: 400px;
+  /* height: 450px; */
   margin: 15px 0 15px;
+}
+
+.category-card {
+  height:35vh;
 }
 
 .category-card:hover {
@@ -27,11 +31,16 @@ body {
 
 .card-img-top {
   height: 60%;
+  margin-top: 1rem;
   object-fit: contain;
 }
 
 .card-body {
   height: 40%;
+}
+
+.card-title {
+  text-align: center;
 }
 
 .detail-container {
