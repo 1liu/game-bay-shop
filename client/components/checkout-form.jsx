@@ -11,6 +11,7 @@ export default class CheckoutForm extends React.Component {
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleCreditCardChange = this.handleCreditCardChange.bind(this);
     this.handleAddressChange = this.handleAddressChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleNameChange(event) {
@@ -31,29 +32,61 @@ export default class CheckoutForm extends React.Component {
     });
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.placeOrder(this.state);
+  }
+
   render() {
     return (
       <div className="container checkout-container col-md-8 m-auto">
         <h2>My Cart</h2>
         <p>Order Total: ${(this.props.total / 100).toFixed(2)}</p>
-        <form className=" mb-4 shadow-sm" onSubmit={() => this.props.placeOrder(this.state)}>
+        <form className=" mb-4 shadow-sm" onSubmit={this.handleSubmit}>
           <label htmlFor="name">Name</label>
           <div className="input-group mb-3">
-            <input required type="text" className="form-control" id="name" value={this.state.name} aria-describedby="basic-addon3" onChange={this.handleNameChange} />
+            <input
+              type="text"
+              className="form-control"
+              id="name"
+              value={this.state.name}
+              aria-describedby="basic-addon3"
+              onChange={this.handleNameChange}
+              required />
           </div>
           <label htmlFor="creditCard">Credit Card</label>
           <div className="input-group mb-3">
-            <input required type="text" className="form-control" id="creditCard" value={this.state.creditCard} aria-describedby="basic-addon3" onChange={this.handleCreditCardChange} />
+            <input
+              type="number"
+              className="form-control"
+              id="creditCard"
+              value={this.state.creditCard}
+              aria-describedby="basic-addon3"
+              onChange={this.handleCreditCardChange}
+              required />
           </div>
           <label htmlFor="shippingAddress">Shipping Address</label>
           <div className="input-group mb-3">
-            <textarea required type="text" className="form-control" id="shippingAddress" value={this.state.shippingAddress} aria-describedby="basic-addon3" onChange={this.handleAddressChange} />
+            <textarea
+              type="text"
+              className="form-control"
+              id="shippingAddress"
+              value={this.state.shippingAddress}
+              aria-describedby="basic-addon3"
+              onChange={this.handleAddressChange}
+              required />
           </div>
-          <div className="pointer text-muted" onClick={() => this.props.setView('catalog', {})}>
+          <div className="pointer text-muted" >
             <div className="ml-auto">
-              <button id="placeOrder" type="submit" className="btn btn-success">Place Order</button>
+              <button
+                id="placeOrder"
+                type="submit"
+                className="btn btn-success"
+              >
+                Place Order
+              </button>
             </div>
-            <div className="mt-2">
+            <div className="mt-2" onClick={() => this.props.setView('catalog', {})}>
               <i className="fas fa-arrow-circle-left mr-2 "></i>
                 Continue Shopping
             </div>

@@ -64,7 +64,7 @@ app.get('/api/products/:productId', (req, res, next) => {
 app.get('/api/cart', (req, res, next) => {
   if (req.session.cartId === undefined) res.json([]);
   else {
-    const cartId = 55;
+    const cartId = req.session.cartId;
     const sql = `
   select "c"."cartItemId",
                 "c"."price",
