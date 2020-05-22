@@ -19,7 +19,7 @@ body {
 }
 
 .category-card {
-  height:35vh;
+  height: 35vh;
 }
 
 .category-card:hover {
@@ -71,4 +71,10 @@ body {
 
 .cart-content, .product-content, .product-detail, .checkout-container {
   min-height: 80vh;
+}
+
+@media only screen and (max-height: 450px) {
+  .category-card {
+    height: 45vh;
+  }
 }
